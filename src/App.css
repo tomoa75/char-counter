@@ -1,0 +1,28 @@
+/* Boje za svijetlu temu (default) */
+:root {
+  --bg-app: #f4f7fa;
+  --bg-card: #ffffff;
+  --text-main: #111111;
+  --border-color: #e1e4e8;
+}
+
+/* Boje za tamnu temu - aktiviraju se kad roditelj ima data-theme="dark" */
+[data-theme="dark"] {
+  --bg-app: #121212;
+  --bg-card: #1e1e1e;
+  --text-main: #ffffff;
+  --border-color: #333333;
+}
+
+/* Primjena varijabli na elemente */
+body {
+  background-color: var(--bg-app);
+  color: var(--text-main);
+  transition: all 0.3s ease; /* Za glatki prijelaz boja */
+}
+
+textarea {
+  background-color: var(--bg-card);
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+}
