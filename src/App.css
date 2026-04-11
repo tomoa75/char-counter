@@ -4,6 +4,7 @@
   --bg-card: #ffffff;
   --text-main: #111111;
   --border-color: #e1e4e8;
+  --textarea-text: #111111;
 }
 
 /* Boje za tamnu temu - aktiviraju se kad roditelj ima data-theme="dark" */
@@ -12,17 +13,80 @@
   --bg-card: #1e1e1e;
   --text-main: #ffffff;
   --border-color: #333333;
+  --textarea-text: #b2adad;
 }
 
 /* Primjena varijabli na elemente */
 body {
+  font-family: "Inter", sans-serif;
   background-color: var(--bg-app);
   color: var(--text-main);
   transition: all 0.3s ease; /* Za glatki prijelaz boja */
 }
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin: 10px auto;
+  padding: 20px;
+
+  border-radius: 8px;
+}
+.header {
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 20px;
+  justify-content: space-between;
+}
+.logo-theme {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+button,
+input,
+textarea {
+  font-family: inherit; /* Ovo prisiljava gumbe da koriste Inter iz body-a */
+  background-color: var(--bg-card);
+  color: var(--textarea-text);
+}
 
 textarea {
-  background-color: var(--bg-card);
-  color: var(--text-main);
   border: 1px solid var(--border-color);
+}
+.checkboxes {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+  color: var(--textarea-text);
+}
+.cards {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+  justify-content: space-between;
+}
+.card1,
+.card2,
+.card3 {
+  padding: 20px;
+  border-radius: 8px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+.card1 {
+  background-color: violet;
+}
+.card2 {
+  background-color: orange;
+}
+.card3 {
+  background-color: cyan;
+}
+.warning {
+  color: red;
+  font-weight: 600;
 }

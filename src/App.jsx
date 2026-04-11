@@ -1,7 +1,12 @@
+import "@fontsource/inter"; // Defaultna težina 400
+import "@fontsource/inter/600.css"; // Bold
+import "@fontsource/inter/700.css"; // Extra Bold
 import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Textarea from "./components/Textarea";
 import Checkboxes from "./components/Checkboxes";
+import Counter from "./components/Counter";
+import Cards from "./components/Cards";
 import "./App.css";
 
 function App() {
@@ -12,10 +17,6 @@ function App() {
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
   };
-  const numOfWords = text.match(/\b[\p{L}\p{N}']+\b/gu)?.length || 0;
-  const numOfSentences = text
-    .split(/[.!?]+/)
-    .filter((r) => r.trim() !== "").length;
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
@@ -35,13 +36,9 @@ function App() {
         option2={option2}
         setOption2={setOption2}
       />
-      <p>{option1 ? text.replace(/\s/g, "").length : text.length} characters</p>
-      <p>{numOfWords} words</p>
-      <p>{numOfSentences} sentences</p>
+      <Cards option1={option1} option2={option2} text={text} />
 
-      {option2 && text.length >= 200 && (
-        <p className="warning">You have reached the character limit.</p>
-      )}
+      <Counter text={text} />
     </div>
   );
 }

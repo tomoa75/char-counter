@@ -8,7 +8,7 @@ export default function Textarea({ value, onChange, option2 }) {
       autoFocus
       cols={40}
       rows={10}
-      maxLength={option2 ? 200 : undefined}
+      maxLength={option2 ? 300 : undefined}
     />
   );
 }
