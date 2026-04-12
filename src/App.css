@@ -1,7 +1,7 @@
 /* Boje za svijetlu temu (default) */
 :root {
   --bg-app: #f4f7fa;
-  --bg-card: #ffffff;
+  --bg-card: #e4e0e0;
   --text-main: #111111;
   --border-color: #e1e4e8;
   --textarea-text: #111111;
@@ -10,7 +10,7 @@
 /* Boje za tamnu temu - aktiviraju se kad roditelj ima data-theme="dark" */
 [data-theme="dark"] {
   --bg-app: #121212;
-  --bg-card: #1e1e1e;
+  --bg-card: #303030;
   --text-main: #ffffff;
   --border-color: #333333;
   --textarea-text: #b2adad;
@@ -26,10 +26,10 @@ body {
 .app-wrapper {
   display: flex;
   flex-direction: column;
-  max-width: 600px;
+  max-width: 800px;
   margin: 10px auto;
   padding: 20px;
-
+  border: 1px solid var(--border-color);
   border-radius: 8px;
 }
 .header {
@@ -50,9 +50,18 @@ textarea {
   background-color: var(--bg-card);
   color: var(--textarea-text);
 }
+button {
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 0 8px;
+}
 
 textarea {
   border: 1px solid var(--border-color);
+  resize: none;
+  padding: 10px;
+  border-radius: 10px;
 }
 .checkboxes {
   display: flex;
@@ -61,21 +70,20 @@ textarea {
   color: var(--textarea-text);
 }
 .cards {
+  box-sizing: border-box;
+  height: 120px;
   display: flex;
-  gap: 20px;
-  margin-bottom: 20px;
-  width: 100%;
+  gap: 10px;
   justify-content: space-between;
 }
 .card1,
 .card2,
 .card3 {
-  padding: 20px;
+  width: 33%;
   border-radius: 8px;
-  color: white;
+  color: black;
   display: flex;
-  flex-direction: column;
-  width: 30%;
+  overflow: hidden; /* Ključno: skriva sve što izlazi iz kartice */
 }
 .card1 {
   background-color: violet;
@@ -84,9 +92,47 @@ textarea {
   background-color: orange;
 }
 .card3 {
-  background-color: cyan;
+  background-color: rgb(246, 107, 56);
+}
+.card-img {
+  margin-right: -80px; /* Ključno: gura sliku maksimalno desno */
+  object-fit: cover; /* Ključno: slika ispunjava prostor bez rastezanja */
+  object-position: left; /* Ključno: fiksira lijevi rub slike, desni se reže */
+  border-radius: 4px;
+  height: 100%; /* Slika zauzima punu visinu kartice */
+}
+.datas {
+  padding: 20px;
+}
+.datas h1 {
+  font-size: 3rem;
+  margin: 0 auto;
+}
+.datas p {
+  margin: 0 auto;
 }
 .warning {
   color: red;
   font-weight: 600;
+}
+.counter {
+  width: 100%;
+}
+.chart {
+  list-style: none;
+  padding: 0;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.chart li {
+  display: flex;
+  justify-content: space-between;
+}
+.chartbar {
+  margin: 4px;
+  width: 85%;
+  height: 12px;
+  background-color: red;
+  border-radius: 6px;
 }

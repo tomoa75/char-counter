@@ -22,7 +22,10 @@ export default function Header({ theme, toggleTheme }) {
           />
         </button>
       </div>
-      <h1 className="header-title">Analyze your text in real-time.</h1>
+      <h1 className="header-title">
+        Analyze your text
+        <br /> in real-time.
+      </h1>
     </header>
   );
 }
