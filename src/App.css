@@ -5,6 +5,7 @@
   --text-main: #111111;
   --border-color: #e1e4e8;
   --textarea-text: #111111;
+  --button-hover: brightness(0.95);
 }
 
 /* Boje za tamnu temu - aktiviraju se kad roditelj ima data-theme="dark" */
@@ -14,6 +15,7 @@
   --text-main: #ffffff;
   --border-color: #333333;
   --textarea-text: #b2adad;
+  --button-hover: brightness(1.25);
 }
 
 /* Primjena varijabli na elemente */
@@ -22,11 +24,12 @@ body {
   background-color: var(--bg-app);
   color: var(--text-main);
   transition: all 0.3s ease; /* Za glatki prijelaz boja */
+  box-sizing: border-box;
 }
 .app-wrapper {
   display: flex;
   flex-direction: column;
-  max-width: 800px;
+  max-width: 70%;
   margin: 10px auto;
   padding: 20px;
   border: 1px solid var(--border-color);
@@ -55,6 +58,9 @@ button {
   border-radius: 4px;
   cursor: pointer;
   padding: 0 8px;
+}
+button:hover {
+  filter: var(--button-hover);
 }
 
 textarea {
@@ -128,11 +134,44 @@ textarea {
 .chart li {
   display: flex;
   justify-content: space-between;
+  gap: 10px;
+}
+.char {
+  width: 3%;
 }
 .chartbar {
   margin: 4px;
-  width: 85%;
+  flex-grow: 1;
   height: 12px;
-  background-color: red;
+  background-color: var(--bg-card);
   border-radius: 6px;
+}
+.fill-bar {
+  height: 100%;
+  background-color: violet;
+  border-radius: 6px;
+  width: var(--percentage);
+}
+.percentage {
+  width: 15%;
+  text-align: right;
+}
+@media (max-width: 768px) {
+  .app-wrapper {
+    padding: 10px;
+    max-width: 100%;
+  }
+  .cards {
+    flex-direction: column;
+    height: auto;
+  }
+  .card1,
+  .card2,
+  .card3 {
+    width: 100%;
+    height: 150px;
+  }
+  .percentage {
+    width: 30%;
+  }
 }
